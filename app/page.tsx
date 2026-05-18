@@ -106,7 +106,7 @@ export default function Home() {
             mb-10
           "
         >
-          Music. Culture. Energy. Community.
+          Music. Energy. Culture. Community.
         </p>
 
         {/* Success Message */}
