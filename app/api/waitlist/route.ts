@@ -38,7 +38,7 @@ export async function POST(req: Request) {
 
     // Send confirmation email
     await resend.emails.send({
-      from: 'The Final Cookout <onboarding@resend.dev>',
+      from: 'The Final Cookout <updates@the9inthcrew.com>',
       to: email,
       subject: 'Welcome to The Final Cookout 🔥',
       html: `
@@ -61,7 +61,7 @@ export async function POST(req: Request) {
           <p>See you soon.</p>
 
           <p>
-            <strong>The Final Cookout Team</strong>
+            <strong>The 9inth Crew</strong>
           </p>
         </div>
       `,
