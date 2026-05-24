@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -28,6 +28,8 @@ export async function POST(req: Request) {
         },
       ]);
 
+
+
     // Handle database errors
     if (error) {
       return NextResponse.json(
@@ -37,35 +39,56 @@ export async function POST(req: Request) {
     }
 
     // Send confirmation email
-    await resend.emails.send({
-      from: 'The Final Cookout <updates@the9inthcrew.com>',
-      to: email,
-      subject: 'Welcome to The Final Cookout 🔥',
-      html: `
-        <div style="font-family:sans-serif;padding:40px;background:#111;color:#fff;">
-          <h1 style="color:#ff6b00;">
-            You're officially on the waitlist.
-          </h1>
+          await resend.emails.send({
+  from: 'The 9inth Crew <info@the9inthcrew.com>',
+  to: email,
 
-          <p>
-            Thanks for signing up for The Final Cookout.
-          </p>
+  subject: 'You’re officially on the waitlist 🔥',
 
-          <p>
-            We’ll keep you updated with announcements,
-            early access, and important event information.
-          </p>
+  html: `
+    <div style="
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #000;
+      color: #fff;
+    ">
+      <h1 style="color: orange;">
+        The Final Cookout
+      </h1>
 
-          <br />
+      <p>
+        Hi ${fullName},
+      </p>
 
-          <p>See you soon.</p>
+      <p>
+        Thank you for joining the waitlist for <strong>The Final Cookout</strong>.We're excited to have you with us!
+      </p>
 
-          <p>
-            <strong>The 9inth Crew</strong>
-          </p>
-        </div>
-      `,
-    });
+      <p>
+        You're officially on the list, and we'll be keeping you updated with important announcements, early access details, and exclusive information before anyone else.
+      </p>
+      
+      <p>
+      Keep an eye on your inbox - something exciting is coming soon. 👀
+      </p>
+
+      <ul>
+        <li>Event announcements</li>
+        <li>Ticket drops</li>
+        <li>Lineup updates</li>
+        <li>Exclusive info</li>
+      </ul>
+
+      <br />
+
+      <p>
+        With love,
+        The 9inth Crew
+      </p>
+
+      </div>
+  `,
+});
 
     // Return success
     return NextResponse.json({
