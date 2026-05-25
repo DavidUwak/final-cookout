@@ -56,6 +56,12 @@ export async function POST(req: Request) {
         The Final Cookout
       </h1>
 
+      <div style="text-align: center;">
+      <img src="logoblue.png"
+      width: 200px;
+      >
+      </div>
+
       <p>
         Hi ${fullName},
       </p>
@@ -68,22 +74,13 @@ export async function POST(req: Request) {
         You're officially on the list, and we'll be keeping you updated with important announcements, early access details, and exclusive information before anyone else.
       </p>
       
-      <p>
+      <p> 
       Keep an eye on your inbox - something exciting is coming soon. 👀
       </p>
 
-      <ul>
-        <li>Event announcements</li>
-        <li>Ticket drops</li>
-        <li>Lineup updates</li>
-        <li>Exclusive info</li>
-      </ul>
-
-      <br />
-
       <p>
-        With love,
-        The 9inth Crew
+        With love, <br />
+        <strong>The 9inth Crew</strong>
       </p>
 
       </div>

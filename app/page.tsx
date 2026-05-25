@@ -83,20 +83,24 @@ export default function Home() {
           text-white
         "
       >
-        {/* Heading */}
-        <h1
-          className="
-            text-5xl
-            md:text-7xl
-            font-black
-            uppercase
-            tracking-wide
-            mb-4
-          "
-        >
-          The Final Cookout
-        </h1>
+<div className="flex justify-center mb-6">
+  <img
+    src="/logo.png"
+    alt="The Final Cookout"
+    className="
+      w-[500px]
+      max-w-none
 
+      relative
+      top-[20px]
+
+      drop-shadow-2xl
+
+      select-none
+      pointer-events-none
+    "
+  />
+</div>
         {/* Subtext */}
         <p
           className="
@@ -146,7 +150,7 @@ export default function Home() {
             {/* Full Name */}
             <input
               type="text"
-              placeholder="Full Name"
+              placeholder="Name"
               value={fullName}
               onChange={(e) =>
                 setFullName(e.target.value)
