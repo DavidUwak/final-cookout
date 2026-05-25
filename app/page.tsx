@@ -83,17 +83,24 @@ export default function Home() {
           text-white
         "
       >
-<div className="flex justify-center mb-6">
+<div className="flex justify-center mb-6 px-4">
   <img
     src="/logo.png"
     alt="The Final Cookout"
     className="
-      w-[500px]
-      max-w-none
+      w-full
+      max-w-[320px]
+
+      sm:max-w-[500px]
+      md:max-w-[750px]
+      lg:max-w-[1000px]
+
+      h-auto
 
       relative
       top-[20px]
 
+      object-contain
       drop-shadow-2xl
 
       select-none
