@@ -50,7 +50,7 @@ export async function POST(req: Request) {
       font-family: Arial, sans-serif;
       padding: 40px;
       background: #000;
-      color: #ffd8b8;
+      color: #ffffff;
     ">
 
 
@@ -59,9 +59,9 @@ export async function POST(req: Request) {
       alt="The Final Cookout"
       style="
         width: 100%;
-        max-width: 320px;
+        max-width: 350px;
         border-radius: 12px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       "
       >
       </div>
