@@ -50,7 +50,7 @@ export async function POST(req: Request) {
       font-family: Arial, sans-serif;
       padding: 40px;
       background: #000;
-      color: #ffd6a8;
+      color: #ffffff;
     ">
 
 
