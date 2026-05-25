@@ -50,11 +50,9 @@ export async function POST(req: Request) {
       font-family: Arial, sans-serif;
       padding: 40px;
       background: #000;
-      color: #fff;
+      color: #ffd8b8;
     ">
-      <h1 style="color: orange;">
-        The Final Cookout
-      </h1>
+
 
       <div style="text-align: center;">
       <img src="https://www.the9inthcrew.com/logoblue.png"

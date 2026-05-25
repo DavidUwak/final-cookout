@@ -98,7 +98,7 @@ export default function Home() {
       h-auto
 
       relative
-      top-[20px]
+      top-[10px]
 
       object-contain
       drop-shadow-2xl
