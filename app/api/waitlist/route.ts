@@ -55,7 +55,7 @@ export async function POST(req: Request) {
 
 
       <div style="text-align: center;">
-      <img src="https://www.the9inthcrew.com/logoblue.png"
+      <img src="https://www.the9inthcrew.com/logoblue2.png"
       alt="The Final Cookout"
       style="
         width: 100%;

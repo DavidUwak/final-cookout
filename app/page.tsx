@@ -85,7 +85,7 @@ export default function Home() {
       >
 <div className="flex justify-center mb-6 px-4">
   <img
-    src="/logo.png"
+    src="/logoblack1.png"
     alt="The Final Cookout"
     className="
       w-full
