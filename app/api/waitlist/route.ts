@@ -59,7 +59,7 @@ export async function POST(req: Request) {
       alt="The Final Cookout"
       style="
         width: 100%;
-        max-width: 350px;
+        max-width: 400px;
         border-radius: 12px;
         margin-bottom: 20px;
       "

@@ -89,11 +89,11 @@ export default function Home() {
     alt="The Final Cookout"
     className="
       w-full
-      max-w-[320px]
+      max-w-[450px]
 
-      sm:max-w-[500px]
-      md:max-w-[750px]
-      lg:max-w-[1000px]
+      sm:max-w-[600px]
+      md:max-w-[850px]
+      lg:max-w-[1300px]
 
       h-auto
 
