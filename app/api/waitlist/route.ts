@@ -82,6 +82,58 @@ export async function POST(req: Request) {
       Keep an eye on your inbox - something exciting is coming soon. 👀
       </p>
 
+      <p> 
+      Follow us on our social handles to catch behind-the-scenes sneak peeks, artist/lineup announcements, and all the event updates you won't want to miss.
+      </p>
+
+      <div style="
+  margin-top: 40px;
+  text-align: center;
+">
+
+  <!-- Instagram -->
+  <a
+    href="https://www.instagram.com/the_9inthcrew?igsh=MXRmN3FxY3hmMWFvdQ=="
+    style="
+      display: inline-block;
+      margin-right: 14px;
+      text-decoration: none;
+    "
+  >
+    <img
+      src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+      alt="Instagram"
+      width="28"
+      height="28"
+      style="
+        vertical-align: middle;
+        filter: invert(1);
+      "
+    />
+  </a>
+
+  <!-- TikTok -->
+  <a
+    href="https://www.tiktok.com/@9inth.crew?_r=1&_t=ZS-96iixHlaYrv"
+    style="
+      display: inline-block;
+      text-decoration: none;
+    "
+  >
+    <img
+      src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
+      alt="TikTok"
+      width="28"
+      height="28"
+      style="
+        vertical-align: middle;
+        filter: invert(1);
+      "
+    />
+  </a>
+
+</div>
+
       <p>
         With love, <br />
         <strong>The 9inth Crew</strong>
