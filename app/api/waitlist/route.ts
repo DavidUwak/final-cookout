@@ -83,11 +83,11 @@ export async function POST(req: Request) {
       </p>
 
       <p> 
-      Follow us on our social handles to catch behind-the-scenes sneak peeks, artist/lineup announcements, and all the event updates you won't want to miss.
+      Tap on the icons below to follow our social handles to catch behind-the-scene peeks, lineup announcements, and all the event updates you won't want to miss.
       </p>
 
       <div style="
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
 ">
 
