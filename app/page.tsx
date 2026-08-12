@@ -18,7 +18,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-6xl px-6 py-24 text-center">
           
           <img
-            src="/logoblack1.png"
+            src="/wordmark.png"
             alt="The Final Cookout"
             className="mx-auto w-full max-w-3xl"
           />
@@ -30,12 +30,12 @@ export default function Home() {
           <div className="mt-8 flex flex-col items-center justify-center gap-2 text-sm uppercase tracking-widest sm:flex-row sm:gap-6">
             <span>29 August 2026</span>
             <span className="hidden sm:block">•</span>
-            <span>Lagos, Nigeria</span>
+            <span>Lekki, Lagos</span>
           </div>
 
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <a
-              href="#https://conviatickets.com/events/O5Y1OB4X"
+              href="https://conviatickets.com/events/O5Y1OB4X"
               className="rounded-xl bg-orange-500 px-8 py-4 font-semibold uppercase tracking-wide transition hover:bg-orange-600"
             >
               Get Your Ticket
@@ -45,7 +45,7 @@ export default function Home() {
               href="/id"
               className="rounded-xl border border-white/30 bg-white/10 px-8 py-4 font-semibold uppercase tracking-wide backdrop-blur-md transition hover:bg-white/20"
             >
-              Get Your Cookout ID
+              Get Your Cookout Photo
             </Link>
           </div>
 
@@ -61,7 +61,7 @@ export default function Home() {
           </p>
 
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            One last gathering.
+            The best night of the summer.
             <br />
             One unforgettable experience.
           </h2>
@@ -93,7 +93,7 @@ export default function Home() {
               Time
             </p>
             <p className="mt-3 text-xl font-semibold">
-              Coming Soon
+              8:00 PM - 3:00 AM
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function Home() {
               Location
             </p>
             <p className="mt-3 text-xl font-semibold">
-              Lagos, Nigeria
+              Lekki, Lagos
             </p>
           </div>
 
@@ -120,15 +120,16 @@ export default function Home() {
             </p>
 
             <h2 className="mt-4 text-4xl font-bold sm:text-5xl">
-              Come for the music.
+              Music Policy? Afrobeats + Afrohouse
               <br />
-              Stay for the memories.
+              The best of both worlds.
             </h2>
           </div>
 
           <p className="text-lg leading-8 text-white/60">
-            DJs, music, food, games, conversations and the kind of
-            atmosphere that makes you wish the day didn't have to end.
+            Can't decide between being at arave or an afrobeat party? No worries, we got you!
+            Our lineup is sure to deliver the best of both, alongside great food, games, 
+            conversations and the kind of atmosphere that makes you wish the day didn't have to end.
             The Final Cookout brings everything together in one place.
           </p>
 
