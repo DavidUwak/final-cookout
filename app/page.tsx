@@ -77,13 +77,13 @@ export default function Home() {
           backdrop-blur-xl
         "
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
           <Link href="/" className="flex items-center">
             <img
               src="/wordmark.png"
               alt="The Final Cookout"
-              className="h-9 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
           </Link>
 
@@ -119,7 +119,7 @@ export default function Home() {
       <section
         className="
           relative
-          min-h-[115vh]
+          min-h-screen
           overflow-hidden
         "
       >
@@ -292,7 +292,7 @@ export default function Home() {
                   hover:bg-[#11151C]/60
                 "
               >
-                Get Your Cookout Photo
+                Get Your Cookout ID
               </Link>
 
             </div>
@@ -308,17 +308,17 @@ export default function Home() {
       {/* ABOUT                                                  */}
       {/* ===================================================== */}
 
-      <section className="relative bg-[#11151C] px-6 py-24 sm:py-32">
+      <section className="relative bg-[#11151C] px-6 py-16 sm:py-20">
 
         <div className="mx-auto max-w-5xl">
 
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
 
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#E8A83E]">
               What is The Final Cookout?
             </p>
 
-            <h2 className="text-4xl font-bold tracking-tight text-[#F3E8D0] sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[#F3E8D0] sm:text-4xl">
               The best night of the summer.
               <br />
               One unforgettable experience.
