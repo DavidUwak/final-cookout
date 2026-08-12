@@ -6,14 +6,32 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/bg.jpg')",
-          }}
-        />
+       <div className="absolute inset-0 bg-[#11151C]" />
 
-        <div className="absolute inset-0 bg-black/60" />
+<div
+  className="absolute inset-0 bg-cover bg-center"
+  style={{
+    backgroundImage: "url('/bg.jpg')",
+    maskImage:
+      "linear-gradient(to bottom, black 0%, black 65%, transparent 100%)",
+    WebkitMaskImage:
+      "linear-gradient(to bottom, black 0%, black 65%, transparent 100%)",
+  }}
+/>
+
+<div className="absolute inset-0 bg-black/30" />
+
+<div
+  className="
+    absolute
+    inset-x-0
+    bottom-0
+    h-80
+    bg-gradient-to-b
+    from-transparent
+    to-[#11151C]
+  "
+/>
 
         <div className="relative z-10 w-full max-w-6xl px-6 py-24 text-center">
           
@@ -119,17 +137,17 @@ export default function Home() {
               The Experience
             </p>
 
-            <h2 className="mt-4 text-4xl font-bold sm:text-5xl">
-              Music Policy? Afrobeats + Afrohouse
+            <h2 className="mt-4 text-4xl font-semibold sm:text-5xl">
+              Afrobeats x Afrohouse
               <br />
               The best of both worlds.
             </h2>
           </div>
 
           <p className="text-lg leading-8 text-white/60">
-            Can't decide between being at arave or an afrobeat party? No worries, we got you!
-            Our lineup is sure to deliver the best of both, alongside great food, games, 
-            conversations and the kind of atmosphere that makes you wish the day didn't have to end.
+            Can't decide between being at a rave or an afrobeat party? No worries, we got you!
+            <br/>
+            Our lineup is sure to deliver the best of both, alongside great food, games, conversations and the kind of atmosphere that makes you wish the day didn't have to end.
             The Final Cookout brings everything together in one place.
           </p>
 
