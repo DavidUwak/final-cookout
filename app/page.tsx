@@ -163,7 +163,7 @@ export default function Home() {
             inset-x-0
             bottom-0
             z-10
-            h-[45%]
+            h-[30%]
             bg-gradient-to-b
             from-transparent
             via-[#11151C]/70
