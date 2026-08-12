@@ -210,6 +210,7 @@ export default function Home() {
                 mt-8
                 text-sm
                 uppercase
+                font-semibold
                 tracking-[0.3em]
                 text-white/80
                 sm:text-base
@@ -319,12 +320,12 @@ export default function Home() {
             </p>
 
             <h2 className="text-2xl font-semibold tracking-tight text-[#F3E8D0] sm:text-3xl">
-              THE BEST PARTY OF THE SUMMER, ONE UNFORGETTABLE EXPERIENCE
+              THE BEST PARTY OF THE SUMMER, AN UNFORGETTABLE EXPERIENCE
             </h2>
 
             <p className="mt-8 text-lg leading-8 text-[#F3E8D0]/60">
               The Final Cookout is more than an event. It is a celebration
-              of music, culture, friendship and community — bringing people
+              of music, culture, friendship and community, bringing people
               together for one unforgettable night in Lagos.
             </p>
 
@@ -392,7 +393,7 @@ export default function Home() {
               The Experience
             </p>
 
-            <h2 className="mt-4 text-4xl font-semibold text-[#F3E8D0] sm:text-5xl">
+            <h2 className="mt-4 text-2xl font-semibold text-[#F3E8D0] sm:text-3xl">
               Afrobeats x Afrohouse
               <br />
               The best of both worlds.
