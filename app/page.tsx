@@ -318,10 +318,8 @@ export default function Home() {
               What is The Final Cookout?
             </p>
 
-            <h2 className="text-3xl font-bold tracking-tight text-[#F3E8D0] sm:text-4xl">
-              The best night of the summer.
-              <br />
-              One unforgettable experience.
+            <h2 className="text-2xl font-semibold tracking-tight text-[#F3E8D0] sm:text-3xl">
+              THE BEST PARTY OF THE SUMMER, ONE UNFORGETTABLE EXPERIENCE
             </h2>
 
             <p className="mt-8 text-lg leading-8 text-[#F3E8D0]/60">
