@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
+/* =========================================================
+   THE FINAL COOKOUT — GLOBAL DESIGN SYSTEM
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Main colors */
+  --background: #11151c;
+  --foreground: #f3e8d0;
+
+  /* Brand palette */
+  --cookout-navy: #11151c;
+  --cookout-warm: #2a1d18;
+  --cookout-cream: #f3e8d0;
+  --cookout-gold: #e8a83e;
+  --cookout-amber: #c97832;
+
+  /* Supporting colors */
+  --cookout-muted: rgba(243, 232, 208, 0.6);
+  --cookout-border: rgba(243, 232, 208, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-cookout-navy: var(--cookout-navy);
+  --color-cookout-warm: var(--cookout-warm);
+  --color-cookout-cream: var(--cookout-cream);
+  --color-cookout-gold: var(--cookout-gold);
+  --color-cookout-amber: var(--cookout-amber);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--cookout-navy);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: var(--cookout-navy);
+  color: var(--cookout-cream);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Prevent horizontal movement caused by animated elements */
+body {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--cookout-gold);
+  color: var(--cookout-navy);
 }

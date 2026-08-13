@@ -93,7 +93,8 @@ export default function Home() {
             rel="noopener noreferrer"
             className="
               rounded-lg
-              bg-[#E8A83E]
+              bg-cookout-gold 
+              text-cookout-navy
               px-4
               py-2
               text-xs
@@ -458,7 +459,8 @@ export default function Home() {
               mt-8
               inline-flex
               rounded-xl
-              bg-[#E8A83E]
+              cookout-gold 
+              text-cookout-navy
               px-8
               py-4
               font-semibold
