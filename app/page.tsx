@@ -192,7 +192,7 @@ export default function Home() {
               opacity: heroLogoOpacity,
               scale: heroLogoScale,
             }}
-            className="w-full max-w-6xl text-center will-change-transform"
+            className="w-full max-w-3xl text-center will-change-transform"
           >
 
             <img
