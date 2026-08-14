@@ -56,7 +56,7 @@ export default function Home() {
   );
 
   return (
-    <main className="min-h-screen bg-[#11151C] text-[#F3E8D0]">
+    <main className="min-h-screen bg-cookout-navy text-[#F3E8D0]">
 
       {/* ===================================================== */}
       {/* STICKY HEADER                                         */}
@@ -101,7 +101,7 @@ export default function Home() {
               font-bold
               uppercase
               tracking-wider
-              text-[#11151C]
+              text-cookout-navy
               transition
               hover:bg-[#F3C56B]
             "
@@ -126,7 +126,7 @@ export default function Home() {
       >
 
         {/* Base background */}
-        <div className="absolute inset-0 bg-[#11151C]" />
+        <div className="absolute inset-0 bg-cookout-navy" />
 
         {/* Moving hero image */}
         <motion.div
@@ -167,8 +167,8 @@ export default function Home() {
             h-[30%]
             bg-gradient-to-b
             from-transparent
-            via-[#11151C]/70
-            to-[#11151C]
+            via-cookout-navy/70
+            to-cookout-navy
           "
         />
 
@@ -262,13 +262,13 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="
                   rounded-xl
-                  bg-[#E8A83E]
+                  bg-cookout-gold
                   px-8
                   py-4
                   font-semibold
                   uppercase
                   tracking-wide
-                  text-[#11151C]
+                  text-cookout-navy
                   transition
                   hover:bg-[#F3C56B]
                 "
@@ -282,7 +282,7 @@ export default function Home() {
                   rounded-xl
                   border
                   border-[#F3E8D0]/30
-                  bg-[#11151C]/30
+                  bg-cookout-navy/30
                   px-8
                   py-4
                   font-semibold
@@ -291,7 +291,7 @@ export default function Home() {
                   text-[#F3E8D0]
                   backdrop-blur-md
                   transition
-                  hover:bg-[#11151C]/60
+                  hover:bg-cookout-navy/60
                 "
               >
                 Get Your Cookout ID
@@ -310,13 +310,13 @@ export default function Home() {
       {/* ABOUT                                                  */}
       {/* ===================================================== */}
 
-      <section className="relative bg-[#11151C] px-6 py-16 sm:py-20">
+      <section className="relative bg-cookout-navy px-6 py-16 sm:py-20">
 
         <div className="mx-auto max-w-5xl">
 
           <div className="max-w-5xl">
 
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#E8A83E]">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cookout-gold">
               What is The Final Cookout?
             </p>
 
@@ -384,13 +384,13 @@ export default function Home() {
       {/* EXPERIENCE                                             */}
       {/* ===================================================== */}
 
-      <section className="bg-[#11151C] px-6 py-24 sm:py-32">
+      <section className="bg-cookout-navy px-6 py-24 sm:py-32">
 
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center">
 
           <div>
 
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#E8A83E]">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cookout-gold">
               The Experience
             </p>
 
@@ -440,7 +440,7 @@ export default function Home() {
           "
         >
 
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#E8A83E]">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cookout-gold">
             You're part of it
           </p>
 
@@ -466,7 +466,7 @@ export default function Home() {
               font-semibold
               uppercase
               tracking-wide
-              text-[#11151C]
+              text-cookout-navy
               transition
               hover:bg-[#F3C56B]
             "
@@ -483,7 +483,7 @@ export default function Home() {
       {/* FOOTER                                                 */}
       {/* ===================================================== */}
 
-      <footer className="border-t border-[#F3E8D0]/10 bg-[#11151C] px-6 py-10">
+      <footer className="border-t border-[#F3E8D0]/10 bg-cookout-navy px-6 py-10">
 
         <div
           className="
