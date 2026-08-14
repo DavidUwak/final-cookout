@@ -77,13 +77,13 @@ export default function Home() {
           backdrop-blur-xl
         "
       >
-        <div className="mx-auto flex h-20 max-w-3xl items-center justify-between px-6">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
           <Link href="/" className="flex items-center">
             <img
               src="/wordmark.png"
               alt="The Final Cookout"
-              className="h-8 w-auto object-contain"
+              className="w-28 h-auto object-contain sm:w-32"
             />
           </Link>
 
