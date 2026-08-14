@@ -77,7 +77,7 @@ export default function Home() {
           backdrop-blur-xl
         "
       >
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-20 max-w-4xl items-center justify-between px-6">
 
           <Link href="/" className="flex items-center">
             <img
@@ -192,7 +192,7 @@ export default function Home() {
               opacity: heroLogoOpacity,
               scale: heroLogoScale,
             }}
-            className="w-full max-w-3xl text-center will-change-transform"
+            className="w-full max-w-6xl text-center will-change-transform"
           >
 
             <img
