@@ -83,7 +83,7 @@ export default function Home() {
             <img
               src="/wordmark.png"
               alt="The Final Cookout"
-              className="h-12 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
           </Link>
 
@@ -321,7 +321,7 @@ export default function Home() {
             </p>
 
             <h2 className="text-2xl font-semibold tracking-tight text-[#F3E8D0] sm:text-3xl">
-              THE BEST PARTY OF THE SUMMER, AN UNFORGETTABLE EXPERIENCE
+              THE MOST ELECTRIFYING PARTY OF THE SUMMER
             </h2>
 
             <p className="mt-8 text-lg leading-8 text-[#F3E8D0]/60">
@@ -395,16 +395,16 @@ export default function Home() {
             </p>
 
             <h2 className="mt-4 text-2xl font-semibold text-[#F3E8D0] sm:text-3xl">
-              Afrobeats x Afrohouse
+              Afrobeats <b>and</b> Afrohouse?
               <br />
-              The best of both worlds.
+              The best of both worlds!
             </h2>
 
           </div>
 
           <p className="text-lg leading-8 text-[#F3E8D0]/60">
             Can't decide between being at a rave or an Afrobeats party?
-            No worries, we got you!
+            No worries, The Final Cookout is just the place for you!
             <br />
             <br />
             Our lineup is sure to deliver the best of both, alongside great
