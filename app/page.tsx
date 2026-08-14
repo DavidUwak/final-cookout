@@ -459,7 +459,7 @@ export default function Home() {
               mt-8
               inline-flex
               rounded-xl
-              cookout-gold 
+              bg-cookout-gold 
               text-cookout-navy
               px-8
               py-4
