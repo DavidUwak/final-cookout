@@ -5,6 +5,8 @@ import { useState } from 'react';
 export default function IDPage() {
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState<string | null>(null);
+  const [genre, setGenre] = useState('');
+  const [song, setSong] = useState('');
 
   const handlePhotoUpload = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -131,7 +133,7 @@ export default function IDPage() {
               "
             >
 
-              {photo ? (
+              {photo ?   (
                 <img
                   src={photo}
                   alt="Uploaded preview"
@@ -161,11 +163,103 @@ export default function IDPage() {
 
           </div>
 
+          {/* GENRE */}
+          <div className="mt-6">
+
+            <label className="mb-3 block text-sm font-medium">
+              Your Favourite Genre
+            </label>
+
+            <div className="grid grid-cols-2 gap-3">
+
+              <button
+                type="button"
+                onClick={() => setGenre('Afrobeats')}
+                className={`
+                  rounded-xl
+                  border
+                  px-4
+                  py-4
+                  text-sm
+                  font-semibold
+                  uppercase
+                  tracking-wide
+                  transition
+                  ${
+                    genre === 'Afrobeats'
+                      ? 'border-cookout-gold bg-cookout-gold text-cookout-navy'
+                      : 'border-cookout-cream/10 bg-cookout-cream/5 text-cookout-cream/60 hover:border-cookout-gold/50'
+                  }
+                `}
+              >
+                Afrobeats
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setGenre('Afrohouse')}
+                className={`
+                  rounded-xl
+                  border
+                  px-4
+                  py-4
+                  text-sm
+                  font-semibold
+                  uppercase
+                  tracking-wide
+                  transition
+                  ${
+                    genre === 'Afrohouse'
+                      ? 'border-cookout-gold bg-cookout-gold text-cookout-navy'
+                      : 'border-cookout-cream/10 bg-cookout-cream/5 text-cookout-cream/60 hover:border-cookout-gold/50'
+                  }
+                `}
+              >
+                Afrohouse
+              </button>
+
+            </div>
+
+          </div>
+
+          {/* FAVOURITE SONG */}
+          <div className="mt-6">
+
+            <label
+              htmlFor="song"
+              className="mb-2 block text-sm font-medium"
+            >
+              Favourite Song
+            </label>
+
+            <input
+              id="song"
+              type="text"
+              value={song}
+              onChange={(e) => setSong(e.target.value)}
+              placeholder="What's your song?"
+              maxLength={40}
+              className="
+                w-full
+                rounded-xl
+                border
+                border-cookout-cream/10
+                bg-cookout-cream/5
+                px-4
+                py-4
+                text-cookout-cream
+                outline-none
+                transition
+                focus:border-cookout-gold
+              "
+            />
+
+          </div>
 
           {/* BUTTON */}
           <button
             type="button"
-            disabled={!name || !photo}
+            disabled={!name || !photo || !genre || !song}
             className="
               mt-8
               w-full
