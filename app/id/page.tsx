@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { toPng } from 'html-to-image';
 
 export default function IDPage() {
   const [name, setName] = useState('');
@@ -8,6 +9,7 @@ export default function IDPage() {
   const [genre, setGenre] = useState('');
   const [song, setSong] = useState('');
   const [cookoutId, setCookoutId] = useState('');
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const id =
@@ -29,6 +31,26 @@ export default function IDPage() {
 
     const imageUrl = URL.createObjectURL(file);
     setPhoto(imageUrl);
+  };
+
+  const handleGenerate = async () => {
+  if (!cardRef.current) return;
+
+  try {
+    const dataUrl = await toPng(cardRef.current, {
+      pixelRatio: 3,
+      cacheBust: true,
+    });
+
+    const link = document.createElement('a');
+
+    link.download = `${name.replace(/\s+/g, '-').toLowerCase()}-final-cookout-id.png`;
+    link.href = dataUrl;
+
+    link.click();
+  } catch (error) {
+    console.error('Failed to generate ID:', error);
+  }
   };
 
   return (
@@ -84,6 +106,7 @@ export default function IDPage() {
           <div className="flex justify-center">
 
             <div
+              ref={cardRef}
               className={`
                 relative
                 w-full
@@ -452,6 +475,7 @@ export default function IDPage() {
             {/* BUTTON */}
             <button
               type="button"
+              onClick={handleGenerate}
               disabled={!name || !photo || !genre || !song}
               className="
                 mt-8
