@@ -34,23 +34,33 @@ export default function IDPage() {
   };
 
   const handleGenerate = async () => {
-  if (!cardRef.current) return;
+    if (!cardRef.current) {
+      console.error('ID card element not found');
+      return;
+    }
 
-  try {
-    const dataUrl = await toPng(cardRef.current, {
-      pixelRatio: 3,
-      cacheBust: true,
-    });
+    try {
+      const dataUrl = await toPng(cardRef.current, {
+        pixelRatio: 3,
+        cacheBust: true,
+      });
 
-    const link = document.createElement('a');
+      const link = document.createElement('a');
 
-    link.download = `${name.replace(/\s+/g, '-').toLowerCase()}-final-cookout-id.png`;
-    link.href = dataUrl;
+      link.download = `${name
+        .trim()
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-final-cookout-id.png`;
 
-    link.click();
-  } catch (error) {
-    console.error('Failed to generate ID:', error);
-  }
+      link.href = dataUrl;
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+    } catch (error) {
+      console.error('Failed to generate ID:', error);
+    }
   };
 
   return (
@@ -106,7 +116,7 @@ export default function IDPage() {
           <div className="flex justify-center">
 
             <div
-              ref={cardRef}
+               ref={cardRef}
               className={`
                 relative
                 w-full
@@ -496,6 +506,7 @@ export default function IDPage() {
             >
               Generate My ID
             </button>
+
           </div>
         </div>
 
