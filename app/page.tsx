@@ -236,7 +236,7 @@ export default function Home() {
                 sm:gap-6
               "
             >
-              <span>29 August 2026</span>
+              <span>4 September 2026</span>
 
               <span className="hidden sm:block">
                 •
