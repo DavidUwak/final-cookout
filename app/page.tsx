@@ -351,7 +351,7 @@ export default function Home() {
             </p>
 
             <p className="mt-3 text-xl font-semibold text-[#F3E8D0]">
-              29 August 2026
+              4th September 2026
             </p>
           </div>
 
@@ -371,7 +371,7 @@ export default function Home() {
             </p>
 
             <p className="mt-3 text-xl font-semibold text-[#F3E8D0]">
-              Lekki, Lagos
+              AutoHaus Lagos 
             </p>
           </div>
 

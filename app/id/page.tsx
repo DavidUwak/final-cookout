@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { toPng } from 'html-to-image';
 
 export default function IDPage() {
@@ -10,6 +11,7 @@ export default function IDPage() {
   const [song, setSong] = useState('');
   const [cookoutId, setCookoutId] = useState('');
   const cardRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const id =
@@ -33,35 +35,26 @@ export default function IDPage() {
     setPhoto(imageUrl);
   };
 
-  const handleGenerate = async () => {
-    if (!cardRef.current) {
-      console.error('ID card element not found');
-      return;
-    }
+  const handleGenerate = () => {
+  if (!name || !photo || !genre || !song || !cookoutId) {
+    return;
+  }
 
-    try {
-      const dataUrl = await toPng(cardRef.current, {
-        pixelRatio: 3,
-        cacheBust: true,
-      });
-
-      const link = document.createElement('a');
-
-      link.download = `${name
-        .trim()
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-final-cookout-id.png`;
-
-      link.href = dataUrl;
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-    } catch (error) {
-      console.error('Failed to generate ID:', error);
-    }
+  const idData = {
+    name,
+    photo,
+    genre,
+    song,
+    cookoutId,
   };
+
+  sessionStorage.setItem(
+    'finalCookoutID',
+    JSON.stringify(idData)
+  );
+
+  router.push('/id/preview');
+};
 
   return (
     <main className="min-h-screen bg-cookout-navy text-cookout-cream">
