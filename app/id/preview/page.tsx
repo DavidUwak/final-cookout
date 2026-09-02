@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { toPng } from 'html-to-image';
 
 type IDData = {
   name: string;
@@ -12,6 +13,7 @@ type IDData = {
 
 export default function IDPreviewPage() {
   const [idData, setIdData] = useState<IDData | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem('finalCookoutID');
@@ -24,6 +26,24 @@ export default function IDPreviewPage() {
       console.error('Failed to read ID data:', error);
     }
   }, []);
+
+  const handleDownload = async () => {
+    if (!cardRef.current || !idData) return;
+
+    try {
+      const dataUrl = await toPng(cardRef.current, {
+        pixelRatio: 3,
+        cacheBust: true,
+      });
+
+      const link = document.createElement('a');
+      link.download = `${idData.name.replace(/\s+/g, '-').toLowerCase()}-cookout-id.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error('Failed to download Cookout ID:', error);
+    }
+  };
 
   if (!idData) {
     return (
@@ -46,10 +66,13 @@ export default function IDPreviewPage() {
     );
   }
 
+  const isAfrohouse = idData.genre === 'Afrohouse';
+
   return (
     <main className="min-h-screen bg-cookout-navy text-cookout-cream">
-
       <section className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 py-16">
+
+        {/* HEADING */}
 
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cookout-gold">
           You're part of it
@@ -67,8 +90,8 @@ export default function IDPreviewPage() {
         {/* ID CARD */}
 
         <div className="mt-10">
-
           <div
+            ref={cardRef}
             className={`
               w-[350px]
               overflow-hidden
@@ -76,25 +99,37 @@ export default function IDPreviewPage() {
               p-5
               pb-7
               shadow-2xl
-
               ${
-                idData.genre === 'Afrohouse'
-                  ? 'bg-[#E8F0E8] text-[#173B2D]'
-                  : 'bg-[#FFF4E3] text-[#24140E]'
+                isAfrohouse
+                  ? 'bg-[#E8F0E8] text-[#173B2D] shadow-[#173B2D]/20'
+                  : 'bg-[#FFF4E3] text-[#24140E] shadow-orange-900/20'
               }
             `}
           >
 
+            {/* THEME ACCENT */}
+
+            <div
+              className={`
+                h-2
+                w-full
+                ${
+                  isAfrohouse
+                    ? 'bg-[#287A5B]'
+                    : 'bg-[#D95F32]'
+                }
+              `}
+            />
+
+
             {/* PHOTO */}
 
-            <div className="aspect-[4/4.6] w-full overflow-hidden">
-
+            <div className="mt-5 aspect-[4/4.6] w-full overflow-hidden">
               <img
                 src={idData.photo}
                 alt={`${idData.name}'s Cookout ID`}
                 className="h-full w-full object-cover"
               />
-
             </div>
 
 
@@ -102,15 +137,18 @@ export default function IDPreviewPage() {
 
             <div className="px-2 pt-6">
 
+              {/* NAME */}
+
               <h2 className="text-center text-2xl font-black uppercase tracking-tight">
                 {idData.name}
               </h2>
 
 
+              {/* GENRE */}
+
               <div className="mt-5 space-y-3">
 
                 <div className="flex items-baseline justify-between border-b border-black/10 pb-2">
-
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">
                     Genre
                   </span>
@@ -118,12 +156,12 @@ export default function IDPreviewPage() {
                   <span className="text-xs font-bold uppercase">
                     {idData.genre}
                   </span>
-
                 </div>
 
 
-                <div className="flex items-baseline justify-between border-b border-black/10 pb-2">
+                {/* SONG */}
 
+                <div className="flex items-baseline justify-between border-b border-black/10 pb-2">
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">
                     Song
                   </span>
@@ -131,12 +169,12 @@ export default function IDPreviewPage() {
                   <span className="max-w-[190px] truncate text-xs font-bold">
                     {idData.song}
                   </span>
-
                 </div>
 
 
-                <div className="flex items-baseline justify-between">
+                {/* COOKOUT ID */}
 
+                <div className="flex items-baseline justify-between">
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">
                     Cookout ID
                   </span>
@@ -145,4 +183,70 @@ export default function IDPreviewPage() {
                     className={`
                       text-xs
                       font-black
-                      tracking-w
+                      tracking-widest
+                      ${
+                        isAfrohouse
+                          ? 'text-[#287A5B]'
+                          : 'text-[#D95F32]'
+                      }
+                    `}
+                  >
+                    {idData.cookoutId}
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        {/* BUTTONS */}
+
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+
+          <button
+            type="button"
+            onClick={handleDownload}
+            className="
+              rounded-xl
+              bg-cookout-gold
+              px-8
+              py-4
+              font-semibold
+              uppercase
+              tracking-wide
+              text-cookout-navy
+              transition
+              hover:bg-[#F3C56B]
+            "
+          >
+            Download My ID
+          </button>
+
+          <a
+            href="/id"
+            className="
+              rounded-xl
+              border
+              border-cookout-cream/20
+              px-8
+              py-4
+              text-center
+              font-semibold
+              uppercase
+              tracking-wide
+              transition
+              hover:bg-cookout-cream/10
+            "
+          >
+            Create Another
+          </a>
+
+        </div>
+
+      </section>
+    </main>
+  );
+}
