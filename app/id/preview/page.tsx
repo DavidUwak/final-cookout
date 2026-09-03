@@ -55,12 +55,23 @@ export default function IDPreviewPage() {
               No Cookout ID found.
             </p>
 
-            <link
-              href="/id"
-              className="mt-6 inline-flex rounded-xl bg-cookout-gold px-6 py-3 font-semibold text-cookout-navy"
-            >
-              Create Your ID
-            </link>
+          <Link
+          href="/id"
+          className="
+            mt-6
+            inline-flex
+            rounded-xl
+            bg-cookout-gold
+            px-6
+            py-3
+            font-semibold
+            text-cookout-navy
+            transition
+            hover:bg-[#F3C56B]
+          "
+          >
+          Create Your ID
+        </Link>
           </div>
         </section>
       </main>
@@ -226,7 +237,7 @@ export default function IDPreviewPage() {
             Download My ID
           </button>
 
-          <a
+          <Link
             href="/id"
             className="
               rounded-xl
@@ -243,7 +254,7 @@ export default function IDPreviewPage() {
             "
           >
             Create Another
-          </a>
+          </Link>
 
         </div>
 
