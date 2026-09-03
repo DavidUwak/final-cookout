@@ -47,36 +47,36 @@ export default function IDPreviewPage() {
   };
 
   if (!idData) {
-    return (
-      <main className="min-h-screen bg-cookout-navy text-cookout-cream">
-        <section className="flex min-h-screen items-center justify-center px-6">
-          <div className="text-center">
-            <p className="text-cookout-cream/60">
-              No Cookout ID found.
-            </p>
+  return (
+    <main className="min-h-screen bg-cookout-navy text-cookout-cream">
+      <section className="flex min-h-screen items-center justify-center px-6">
+        <div className="text-center">
+          <p className="text-cookout-cream/60">
+            No Cookout ID found.
+          </p>
 
           <Link
-          href="/id"
-          className="
-            mt-6
-            inline-flex
-            rounded-xl
-            bg-cookout-gold
-            px-6
-            py-3
-            font-semibold
-            text-cookout-navy
-            transition
-            hover:bg-[#F3C56B]
-          "
+            href="/id"
+            className="
+              mt-6
+              inline-flex
+              rounded-xl
+              bg-cookout-gold
+              px-6
+              py-3
+              font-semibold
+              text-cookout-navy
+              transition
+              hover:bg-[#F3C56B]
+            "
           >
-          Create Your ID
-        </Link>
-          </div>
-        </section>
-      </main>
-    );
-  }
+            Create Your ID
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}
 
   const isAfrohouse = idData.genre === 'Afrohouse';
 
