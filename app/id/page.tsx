@@ -1,252 +1,299 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { toPng } from 'html-to-image';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-type IDData = {
-  name: string;
-  photo: string;
-  genre: string;
-  song: string;
-  cookoutId: string;
-};
+export default function IDPage() {
+  const [name, setName] = useState('');
+  const [photo, setPhoto] = useState<string | null>(null);
+  const [genre, setGenre] = useState('');
+  const [song, setSong] = useState('');
 
-export default function IDPreviewPage() {
-  const [idData, setIdData] = useState<IDData | null>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
-  useEffect(() => {
-    const storedData = sessionStorage.getItem('finalCookoutID');
+  const handlePhotoUpload = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-    if (!storedData) return;
-
-    try {
-      setIdData(JSON.parse(storedData));
-    } catch (error) {
-      console.error('Failed to read ID data:', error);
-    }
-  }, []);
-
-  const handleDownload = async () => {
-    if (!cardRef.current || !idData) return;
-
-    try {
-      const dataUrl = await toPng(cardRef.current, {
-        pixelRatio: 3,
-        cacheBust: true,
-      });
-
-      const link = document.createElement('a');
-      link.download = `${idData.name.replace(/\s+/g, '-').toLowerCase()}-cookout-id.png`;
-      link.href = dataUrl;
-      link.click();
-    } catch (error) {
-      console.error('Failed to download Cookout ID:', error);
-    }
+    const imageUrl = URL.createObjectURL(file);
+    setPhoto(imageUrl);
   };
 
-  if (!idData) {
-    return (
-      <main className="min-h-screen bg-cookout-navy text-cookout-cream">
-        <section className="flex min-h-screen items-center justify-center px-6">
-          <div className="text-center">
-            <p className="text-cookout-cream/60">
-              No Cookout ID found.
-            </p>
+  const handleGenerate = () => {
+    if (!name || !photo || !genre || !song) return;
 
-            <a
-              href="/id"
-              className="mt-6 inline-flex rounded-xl bg-cookout-gold px-6 py-3 font-semibold text-cookout-navy"
-            >
-              Create Your ID
-            </a>
-          </div>
-        </section>
-      </main>
+    const cookoutId =
+      'FC-' +
+      Math.random()
+        .toString(36)
+        .substring(2, 8)
+        .toUpperCase();
+
+    const idData = {
+      name,
+      photo,
+      genre,
+      song,
+      cookoutId,
+    };
+
+    sessionStorage.setItem(
+      'finalCookoutID',
+      JSON.stringify(idData)
     );
-  }
 
-  const isAfrohouse = idData.genre === 'Afrohouse';
+    router.push('/id/preview');
+  };
 
   return (
     <main className="min-h-screen bg-cookout-navy text-cookout-cream">
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 py-16">
 
-        {/* HEADING */}
+      {/* HEADER */}
+      <header className="border-b border-cookout-cream/10">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cookout-gold">
-          You're part of it
-        </p>
-
-        <h1 className="mt-4 text-center text-4xl font-bold sm:text-5xl">
-          Your Cookout ID
-        </h1>
-
-        <p className="mt-4 max-w-md text-center text-cookout-cream/50">
-          Your official Final Cookout identity card is ready.
-        </p>
-
-
-        {/* ID CARD */}
-
-        <div className="mt-10">
-          <div
-            ref={cardRef}
-            className={`
-              w-[350px]
-              overflow-hidden
-              rounded-sm
-              p-5
-              pb-7
-              shadow-2xl
-              ${
-                isAfrohouse
-                  ? 'bg-[#E8F0E8] text-[#173B2D] shadow-[#173B2D]/20'
-                  : 'bg-[#FFF4E3] text-[#24140E] shadow-orange-900/20'
-              }
-            `}
-          >
-
-            {/* THEME ACCENT */}
-
-            <div
-              className={`
-                h-2
-                w-full
-                ${
-                  isAfrohouse
-                    ? 'bg-[#287A5B]'
-                    : 'bg-[#D95F32]'
-                }
-              `}
+          <a href="/">
+            <img
+              src="/wordmark.png"
+              alt="The Final Cookout"
+              className="h-auto w-28 object-contain sm:w-32"
             />
+          </a>
+
+          <a
+            href="/"
+            className="text-sm text-cookout-cream/60 transition hover:text-cookout-cream"
+          >
+            Back Home
+          </a>
+
+        </div>
+      </header>
 
 
-            {/* PHOTO */}
+      {/* FORM */}
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
 
-            <div className="mt-5 aspect-[4/4.6] w-full overflow-hidden">
-              <img
-                src={idData.photo}
-                alt={`${idData.name}'s Cookout ID`}
-                className="h-full w-full object-cover"
-              />
-            </div>
+        <div className="mx-auto max-w-2xl text-center">
 
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cookout-gold">
+            You're part of it
+          </p>
 
-            {/* DETAILS */}
+          <h1 className="mt-4 text-4xl font-bold sm:text-5xl">
+            Create your Cookout ID.
+          </h1>
 
-            <div className="px-2 pt-6">
+          <p className="mx-auto mt-5 max-w-xl text-cookout-cream/60">
+            Upload your photo and create your official Final Cookout
+            identity card.
+          </p>
 
-              {/* NAME */}
-
-              <h2 className="text-center text-2xl font-black uppercase tracking-tight">
-                {idData.name}
-              </h2>
-
-
-              {/* GENRE */}
-
-              <div className="mt-5 space-y-3">
-
-                <div className="flex items-baseline justify-between border-b border-black/10 pb-2">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">
-                    Genre
-                  </span>
-
-                  <span className="text-xs font-bold uppercase">
-                    {idData.genre}
-                  </span>
-                </div>
-
-
-                {/* SONG */}
-
-                <div className="flex items-baseline justify-between border-b border-black/10 pb-2">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">
-                    Song
-                  </span>
-
-                  <span className="max-w-[190px] truncate text-xs font-bold">
-                    {idData.song}
-                  </span>
-                </div>
-
-
-                {/* COOKOUT ID */}
-
-                <div className="flex items-baseline justify-between">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">
-                    Cookout ID
-                  </span>
-
-                  <span
-                    className={`
-                      text-xs
-                      font-black
-                      tracking-widest
-                      ${
-                        isAfrohouse
-                          ? 'text-[#287A5B]'
-                          : 'text-[#D95F32]'
-                      }
-                    `}
-                  >
-                    {idData.cookoutId}
-                  </span>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
         </div>
 
 
-        {/* BUTTONS */}
+        <div className="mx-auto mt-12 max-w-xl">
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          {/* NAME */}
+          <div>
+            <label
+              htmlFor="name"
+              className="mb-2 block text-sm font-medium"
+            >
+              Your Name
+            </label>
 
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              className="
+                w-full rounded-xl
+                border border-cookout-cream/10
+                bg-cookout-cream/5
+                px-4 py-4
+                text-cookout-cream
+                outline-none
+                transition
+                focus:border-cookout-gold
+              "
+            />
+          </div>
+
+
+          {/* PHOTO */}
+          <div className="mt-6">
+
+            <label
+              htmlFor="photo"
+              className="mb-2 block text-sm font-medium"
+            >
+              Your Photo
+            </label>
+
+            <label
+              htmlFor="photo"
+              className="
+                flex cursor-pointer
+                flex-col items-center justify-center
+                rounded-xl
+                border border-dashed border-cookout-cream/20
+                bg-cookout-cream/5
+                px-6 py-10
+                text-center
+                transition
+                hover:border-cookout-gold
+                hover:bg-cookout-cream/10
+              "
+            >
+
+              {photo ? (
+                <img
+                  src={photo}
+                  alt="Uploaded preview"
+                  className="h-40 w-40 rounded-xl object-cover"
+                />
+              ) : (
+                <>
+                  <span className="text-lg font-medium">
+                    Upload your photo
+                  </span>
+
+                  <span className="mt-2 text-sm text-cookout-cream/40">
+                    JPG, PNG or WEBP
+                  </span>
+                </>
+              )}
+
+              <input
+                id="photo"
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                onChange={handlePhotoUpload}
+                className="hidden"
+              />
+
+            </label>
+
+          </div>
+
+
+          {/* GENRE */}
+          <div className="mt-6">
+
+            <label className="mb-3 block text-sm font-medium">
+              Pick your sound
+            </label>
+
+            <div className="grid grid-cols-2 gap-3">
+
+              <button
+                type="button"
+                onClick={() => setGenre('Afrohouse')}
+                className={`
+                  rounded-xl
+                  border
+                  px-4 py-4
+                  font-semibold
+                  transition
+                  ${
+                    genre === 'Afrohouse'
+                      ? 'border-cookout-gold bg-cookout-gold text-cookout-navy'
+                      : 'border-cookout-cream/10 bg-cookout-cream/5'
+                  }
+                `}
+              >
+                Afrohouse
+              </button>
+
+
+              <button
+                type="button"
+                onClick={() => setGenre('Afrobeats')}
+                className={`
+                  rounded-xl
+                  border
+                  px-4 py-4
+                  font-semibold
+                  transition
+                  ${
+                    genre === 'Afrobeats'
+                      ? 'border-cookout-gold bg-cookout-gold text-cookout-navy'
+                      : 'border-cookout-cream/10 bg-cookout-cream/5'
+                  }
+                `}
+              >
+                Afrobeats
+              </button>
+
+            </div>
+
+          </div>
+
+
+          {/* SONG */}
+          <div className="mt-6">
+
+            <label
+              htmlFor="song"
+              className="mb-2 block text-sm font-medium"
+            >
+              Favourite Song
+            </label>
+
+            <input
+              id="song"
+              type="text"
+              value={song}
+              onChange={(e) => setSong(e.target.value)}
+              placeholder="What's your song?"
+              className="
+                w-full rounded-xl
+                border border-cookout-cream/10
+                bg-cookout-cream/5
+                px-4 py-4
+                text-cookout-cream
+                outline-none
+                transition
+                focus:border-cookout-gold
+              "
+            />
+
+          </div>
+
+
+          {/* GENERATE BUTTON */}
           <button
             type="button"
-            onClick={handleDownload}
+            onClick={handleGenerate}
+            disabled={!name || !photo || !genre || !song}
             className="
+              mt-8
+              w-full
               rounded-xl
               bg-cookout-gold
-              px-8
-              py-4
+              px-8 py-4
               font-semibold
               uppercase
               tracking-wide
               text-cookout-navy
               transition
               hover:bg-[#F3C56B]
+              disabled:cursor-not-allowed
+              disabled:opacity-40
             "
           >
-            Download My ID
+            Generate My ID
           </button>
-
-          <a
-            href="/id"
-            className="
-              rounded-xl
-              border
-              border-cookout-cream/20
-              px-8
-              py-4
-              text-center
-              font-semibold
-              uppercase
-              tracking-wide
-              transition
-              hover:bg-cookout-cream/10
-            "
-          >
-            Create Another
-          </a>
 
         </div>
 
       </section>
+
     </main>
   );
 }
