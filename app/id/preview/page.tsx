@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { toPng } from 'html-to-image';
 
 type IDData = {
@@ -54,12 +55,12 @@ export default function IDPreviewPage() {
               No Cookout ID found.
             </p>
 
-            <a
+            <link
               href="/id"
               className="mt-6 inline-flex rounded-xl bg-cookout-gold px-6 py-3 font-semibold text-cookout-navy"
             >
               Create Your ID
-            </a>
+            </link>
           </div>
         </section>
       </main>
